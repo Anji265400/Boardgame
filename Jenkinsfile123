@@ -21,7 +21,13 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn package'
+                sh 'mvn clean install'  // Add mvn clean install to the Build stage
+            }
+        }
+
+        stage('Deploy') {  // Add Deploy stage
+            steps {
+                sh 'mvn deploy'  // Add mvn deploy command here
             }
         }
     }
